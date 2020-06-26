@@ -36,15 +36,15 @@
     // y = (b + a)
     // x*y = n
 
-    // Тогда a = (max(x, y) - min(x, y)) / 2  и ответом будет ((max(x, y) - min(x, y)) / 2)^2
+    // Тогда a = (x - y) / 2  и ответом будет ((max(x, y) - min(x, y)) / 2)^2
 
     // При этом множители числа n - x и y - должны быть максимально близки друг к другу, но не равны, поэтому мы начинаем поиск с Math.floor(Math.sqrt(n)).
 
     function solve(n) {
         for (i = Math.floor(Math.sqrt(n)); i >= 1; i--) {
             if (n % i == 0) {
-                let result = (Math.max(i, n / i) - Math.min(i, n / i)) / 2;
-                if (result > 0 && result % 1 == 0) return result*result;
+                let result = (i - n / i) / 2;
+                if (result % 1 == 0) return result*result;
             }
         }
         return -1;
