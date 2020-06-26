@@ -44,7 +44,7 @@
         for (i = Math.floor(Math.sqrt(n)); i >= 1; i--) {
             if (n % i == 0) {
                 let result = (i - n / i) / 2;
-                if (result % 1 == 0) return result*result;
+                if (result != 0 && result % 1 == 0) return result*result;
             }
         }
         return -1;
